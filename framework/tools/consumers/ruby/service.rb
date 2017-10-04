@@ -18,7 +18,7 @@ class Service
         perform(prepare(job))
         logger.trace "#{job}: OK"
       rescue => reason
-        logger.error "#{job}: #{reason}"
+        logger.error "#{job}: #{reason.backtrace}"
       end
     end
   end

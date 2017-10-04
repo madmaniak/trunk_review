@@ -4,7 +4,7 @@ global.LocalStore =
     Store.collections[name] ||= {}
     Store.collections[name][object.id] = object
     L.each relations, (relation) ->
-      relation[name].add_id(object.id)
+      relation[name]?.add_id(object.id)
 
   update: (object, transition, params) ->
     Actions[transition](object, params)

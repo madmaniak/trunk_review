@@ -105,6 +105,22 @@ class global.Collection
       j++
     -1
 
+  load: ->     @go {}, (scope) => @scope = scope
+
+  go: (params, scope_f) ->
+    @done = false
+    query = L.merge(params, @params)
+    rk    = @constructor.path + L.stringify(query)
+
+    Dispatcher.once Requests.perform(@constructor.path, query), (reply) =>
+      # Cache.set rk, reply.raw
+      scope_f?.call(@, reply.scope); @v++
+      if @constructor.relations
+        L.each Store.get(@constructor.base, reply.scope), (object) =>
+          @_create_relations(object.id)
+      @done = true
+    @
+
   _object: (id) -> Store.get(@constructor.base, id)[0]
 
 H =

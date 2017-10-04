@@ -1,0 +1,25 @@
+._mainmenu {
+  display: flex;
+  width: 100%;
+
+  ul {
+    width: 100%;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0 0 50px;
+    padding: 0;
+    display: flex;
+
+    li {
+      ._ref {
+        font-size: 30pt;
+        margin-bottom: 36px;
+        letter-spacing: 1.94px;
+        color: #ae81ff;
+      }
+      ._ref.active {
+        color: #ae0a6c;
+      }
+    }
+  }
+}

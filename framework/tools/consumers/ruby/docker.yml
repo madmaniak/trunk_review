@@ -12,6 +12,8 @@ consumer:
     pg_pass: pro
     app: pro
   command: bash framework/tools/consumers/ruby/docker-up.sh
+  ports:
+  - 7777:7777
   volumes:
     - .:/pro
   depends_on:

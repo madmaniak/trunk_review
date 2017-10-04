@@ -13,5 +13,5 @@ if ARGV.include? 'c'
   require_relative '../consumers/ruby/console'
 else
   require_relative 'frontend_init'
-  exec 'ruby framework/tools/consumers/ruby/entry.rb'
+  exec 'ruby framework/tools/consumers/ruby/entry_http.rb & ruby framework/tools/consumers/ruby/entry.rb'
 end

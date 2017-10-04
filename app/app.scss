@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Blogger';
+  src: url('Blogger_Sans.woff') format('woff');
+}
+@font-face {
+  font-family: 'BloggerMedium';
+  src: url('Blogger_Sans-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'BloggerBold';
+  src: url('Blogger_Sans-Bold.woff') format('woff');
+}
+body { font-family: 'Blogger' }
+#app { justify-content: flex-start }
+
+#app.accepted ._router { align-self: flex-start }
+#app.rejected ._router { align-self: flex-end   }
+
+strong {
+  font-family: 'BloggerBold';
+  font-weight: normal;
+}
+._ref:hover, ._switch:hover, a:hover {
+  opacity: 0.7;
+}
+h1 {
+  font-size: 144pt;
+  letter-spacing: 1.35px;
+  font-weight: normal;
+  font-family: 'BloggerMedium';
+  margin: 0;
+  line-height: 1.7;
+}
+
+h2 {
+  margin: 0 0 15px 0;
+  font-size: 40pt;
+  font-weight: normal;
+  letter-spacing: 1.35px;
+  line-height: 1;
+}
+
+h3 {
+  color: #ae81ff;
+  font-size: 18pt;
+  font-weight: normal;
+  margin: 32px 0 0;
+}
+
+a { text-decoration: none; display: block }
+
+h1.smaller { font-size: 126pt; line-height: 0.95; text-align: justify }
+
+._ref, .clickable { cursor: pointer }
+.center { text-align: center }
+
