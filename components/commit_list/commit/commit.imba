@@ -8,7 +8,8 @@ tag commit
 	def render
 		<self@{data:id}>
 			<h4> time
-			<h3> data:hash
+			<h3> <a href="https://alm-github.systems.uk.hsbc/Jade/app/commit/{data:hash}" target="_blank"> data:message
+			<h5> data:hash
 			<._mainmenu>
 				<ul>
 					<reject[data]> if L.includes [:pending, :accepted], R:view

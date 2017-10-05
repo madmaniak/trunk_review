@@ -8,11 +8,11 @@ Oj.default_options = { symbol_keys: true, mode: :compat }
 server = WEBrick::HTTPServer.new :Port => 7777
 
 server.mount_proc "/add" do |req, res|
-  req.body.split("\n").map { |commit|
-    commit =~ /\+ (.+) \*/; $1
-  }.each do |hash|
+  req.body.split("+ ")[1..-1].map { |commit|
+    commit =~ /(\w+) (.*)/; [$1, $2]
+  }.each do |hash, message|
     dis.que :addjob, "front/framework/services/store/add",
-      Oj.dump(object: { type: 'commits', time: DateTime.now, hash: hash, status: 'pending', id: 0 }, sid: "0", r: 0, relations: [['app/pending/get_pending',1]]), 60, :replicate, 1, :retry, 0, :ttl, 2
+      Oj.dump(object: { type: 'commits', time: DateTime.now, hash: hash, message: message, status: 'pending', id: 0 }, sid: "0", r: 0, relations: [['app/pending/get_pending',1]]), 60, :replicate, 1, :retry, 0, :ttl, 2
   end
 end
 
